@@ -1,4 +1,3 @@
-
 var audioA = new Audio("msc/sea.mp3")           //musica do jogo
 var audioClick = new Audio('msc/click.mp3')         //som do click do botão
 var audioEvol = new Audio('msc/evoluir.mp3')        //som da evolução do persongem
@@ -240,23 +239,12 @@ function Pokebola(aux){                                        //   INICIO DA PA
         clearTimeout(myTime);
         myTime = setTimeout(function(){
             talk.style.opacity = "1";
-            persTalk.src = "img/jessieTalk.png";
-            falaTalk.innerHTML = "Hey brat!!<br>Are you ready for <br>being smashed??"
-        }, 1000);
-        myTime = setTimeout(function(){persTalk.src = "img/jamesTalk.png";
-        falaTalk.innerHTML = "Ha ha ha!!<br>We will not let <br>you collect those <br>pokeballs, so be<br> prepared to lose!!"
-        }, 6000);
-        myTime = setTimeout(function(){  
             persTalk.src = "img/ash.gif";
-            falaTalk.innerHTML = "Don't be afraid <br>Pichu!! We can <br>do it!!!Collect all the<br>pokeballs you can <br>until the time is up!!"
-        }, 12000);
+            falaTalk.innerHTML = "You can do it!!"
+        }, 1000);
         myTime = setTimeout(function(){  
-            persTalk.src = "";
-            falaTalk.innerHTML = "<br><br><br><br> .  .  .  .Pichu pichu!!!"
-        }, 18000);
-        myTime = setTimeout(function(){
             talk.style.opacity = "0";
-        },20000)
+        }, 5000);
     }    
     xPok = Math.floor(Math.random()*(440 - 30)) +30     //gera uma posição aleatória para a pokebola
     yPok = Math.floor(Math.random()*(410 - 10)) + 10
@@ -330,5 +318,3 @@ function Evolucao(numpokebola){              // 30 pokebolas = 1º evolução (p
         },6000)
     }
 }
-
-

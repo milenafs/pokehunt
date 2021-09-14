@@ -27,7 +27,13 @@ body{
           -ms-user-select: none; /* Internet Explorer/Edge */
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
-  }
+}
+#nav-btn{
+    position: fixed;
+}
+#nav-btn > img{
+    height: 70px;
+}
 #jogo{
     position: fixed;
 }
@@ -93,6 +99,7 @@ strong{
 #btnIniciar:active{
     background-color: red;
     border: 5px solid red;
+    border: none;
 }
 #placar{
     margin-bottom: 10px;
@@ -134,12 +141,7 @@ strong{
     margin-top: 5px;
     opacity: 0;
     transition: all .5s ease;
-}/*
-.personagens{}
-.pers{
-    display: inline;
-    width: 100%;
-}*/
+}
 #imgAnim{
     height: 200px;
     z-index: 1;
@@ -167,3 +169,48 @@ strong{
     0%{left: -1000px;}
     100%{left: 0px;}
 }
+/************************HOMEEEEEEEEEEEEE***********/
+#div-pokedex{
+    background-color: antiquewhite;
+    border-radius: 15px;
+    margin-top: 1%;
+    width: 80%;
+    margin-left: 10%;
+    border: 2px solid black;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.514);
+}
+#div-pokedex-left{
+    float: left;
+    width: 15%;
+}
+#div-pokedex-right{
+    margin-left: 15%;
+    width: 85%;
+    height: 500px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-image: url(https://pbs.twimg.com/media/Dh6TKoZVMAEdbys.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+.pokedex-btns{
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid black;
+}
+.pokedex-btns:hover{
+    background-color: aqua;
+}
+.pokedex-btns > img{
+    width: 20px;
+}
+#pokedex-btn-map{
+}
+#pokedex-btn-city{
+}
+#pokedex-btn-me{
+}
+/*****************************************************/
+/*** PERSONAGENS**/
