@@ -61,17 +61,15 @@ window.onload = function () {
                     subs.innerHTML = "<strong>Ash: </strong>"
                     fala = 'Click on the LET\'S go button to continue our journey...'; 
                     var btnBegin = document.getElementById("btn-continue");
-                    btnBegin.innerHTML = "<a href=\"home.html\">LET'S GO -></a>"
+                    btnBegin.innerHTML = "<a href=\"singleplayer.html\">LET'S GO -></a>"
                     break;
                 }
             }
             cena++;
             i = 0;
             typeWriter();
-            
             audioClick.play();
         }        
-
         function typeWriter() {
             if (i < fala.length) {
                 subs.innerHTML += fala.charAt(i);
@@ -80,22 +78,93 @@ window.onload = function () {
             }
         }
     }
-
     btns[1].onclick = function () {
+        var modal = document.getElementById("modal-play");
+        var modalLeft = document.getElementById("img-left");
+        var modalCenter = document.getElementById("img-center");
+        var modalRigth = document.getElementById("img-right");
+        modal.style.zIndex = "1";
+        modal.style.opacity = "1";
+        audioHome.pause();
+        var subs = document.getElementById("modal-play-subs")
+        var fala = "";
+        var cena = 1;
+        var i = 0;
+
+        modal.style.backgroundColor = "rgb(0,0,0)"
+        modal.style.backgroundImage = "url(img/scenery1.png)"
+        subs.innerHTML = "<strong> </strong>"
+        fala = 'WELCOME TO POKEHUNT MULTIPLAYER MODE!!!!!!!!'; 
+        typeWriter();
+
+        document.getElementById("btn-continue").onclick = function(){
+            switch (cena) {
+                case 1:{
+                    modalLeft.src = "img/jessieTalk.png"
+                    subs.innerHTML = "<strong>Jessie: </strong>"
+                    fala = 'Hey brat!! What\'s your name??'; 
+                    break;
+                }
+                case 2:{
+                    modalLeft.src = ""
+                    modalRigth.src = "img/LIXO/rod.png";
+                    subs.innerHTML = "<strong>Rodrigo: </strong>"
+                    fala = 'I\'M  NOT A BRAT YOUR FUC** BITC**!! My name is Rodrigo by the way!!'; 
+                    break;
+                }''
+                case 3:{
+                    modalRigth.src = "";
+                    modalLeft.src = "img/ash.gif"
+                    subs.innerHTML = "<strong>Ash: </strong>"
+                    fala = 'Where\'s is your body??!!'; 
+                    break;
+                }
+                case 4:{
+                    modalLeft.src = ""
+                    modalRigth.src = "img/LIXO/rod.png";
+                    subs.innerHTML = "<strong>Rodrigo: </strong>"
+                    fala = 'I lost it... Help me get my body back!!'; 
+                    break;
+                }
+                default:{
+                    modalRigth.src= "";
+                    modalLeft.src = "img/ash.gif"
+                    subs.innerHTML = "<strong>Ash: </strong>"
+                    fala = 'Don\'t worry Rodrigo, we will find it and return it to you!! '; 
+                    var btnBegin = document.getElementById("btn-continue");
+                    btnBegin.innerHTML = "<a href=\"multiplayer.html\">LET'S GO -></a>"
+                    break;
+                }
+            }
+            cena++;
+            i = 0;
+            typeWriter();
+            audioClick.play();
+        }  
+        function typeWriter() {
+            if (i < fala.length) {
+                subs.innerHTML += fala.charAt(i);
+                i++;
+                setTimeout(typeWriter, 50);
+            }
+        }      
+    }
+    
+    btns[2].onclick = function () {
         var modal = document.getElementById("modal-option");
         modal.style.marginTop = "200px";
         modal.style.marginLeft = "45%";
         modal.style.width = "10%";
         audioClick.play();
     }
-    btns[2].onclick = function () {
+    btns[3].onclick = function () {
         var modal = document.getElementById("modal-instruction");
         modal.style.marginTop = "200px";
         modal.style.marginLeft = "30%";
         modal.style.width = "40%";
         audioClick.play();
     }
-    btns[3].onclick = function () {
+    btns[4].onclick = function () {
         var modal = document.getElementById("modal-info");
         modal.style.marginTop = "200px";
         modal.style.marginLeft = "38%";
