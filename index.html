@@ -1,0 +1,86 @@
+<!-- Milena Furuta Shishito 
+       20148    -   PD20    -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PokeHunt</title>
+    <script src="javascript.js"></script>
+    <link rel="shortcut icon" href="img/pikachu.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body class="noselect" onkeydown="Andar(event)" onload="IniciarJogo()">
+    <!-- quando a página for carregada o canvas *IniciarJogo() aparecerá e o jogador já poderá controlar o personagem pelos controles *Andar()-->
+    <div id="jogo">
+        <img width="20%" src="img/PokeHunt.png"> <!-- Logo do jogo :)-->
+        <br>
+        <div id="instrucao">
+            <!--div do lado esquerdo do canvas-->
+            <div id="imgAnim">
+                <img id="imgTalk" alt="">
+                <p id="fala"> 
+                    ----- Welcome to PokeHunt!!<br>
+                    ----- Music: <a href="https://www.youtube.com/watch?v=VHKLBEn7vJQ">sea (bts)</a><br>
+                    ----- Serie:<a href="">Pokemón </a> <br>
+                    ----- Dev: <a href="https://github.com/milenafs">Milena </a>;)<br>
+                    ----- Version: 1.1 <br>
+                    ----- Thx for playing my game!!
+                </p>
+            </div>
+            <div class="painel">
+                <strong>How to play</strong><br><br>
+                <!--2º parte: contém intrunções prévias do jogo-->
+                1. Click the yellow button to <i>START</i>;<br><br>
+                2. Move pikachu <img height="20px" src="img/pichu.png"> with the arrows in your keyboard<br><br>
+                3. Collect how many Pokeballs you can<img height="15px" src="img/pokebola.png"> until the time is up<br><br>
+                4. Run away from Team Rocket<br><img height="20px" src="img/jessie.png"><img height="20px"
+                    src="img/james.png"><br>
+            </div>
+  <!--          <div class="personagens">
+                <div class="painel pers">
+                    <img src="" alt="">
+                </div>
+                <div class="painel pers"></div>
+                <div class="painel pers"></div>
+            </div>-->
+        </div>
+        <div id="tempo">
+            <!--div do lado direito do canvas-->
+            <div id="placar" class="painel">
+                <!--1º parte: contém o número de pokebolas que o jogador coletar-->
+                <img style="margin: 10px;float: left;" id="pokebola"
+                    src="img/pokebolaM.png">
+                <!--img-->
+                <em id="numpokebola" class="destaque" style="float: left;">x0</em>
+                <!--numero que será atualizado pelo javascript-->
+                <img class="star" id="star1" src="img/star.png" alt="">
+                <img class="star" id="star2" src="img/star.png" alt="">
+                <img class="star" id="star3" src="img/star.png" alt="">
+            </div>
+            <div class="painel">
+                <!--1º parte: relógio-->
+                <strong>Time</strong><br>
+                <div id="relogio" class="destaque">04:40</div><br>
+                <!--o tempo será tualizado com o javascript-->
+                <img width="100%" src="img/pokemons.png">
+            </div>
+            <div class="painel" id="recorde">
+                <!--2º parte: aparece a melhor pontuação das partidas, se a página for atualizada o recorde é perdido-->
+                <strong>Best Score</strong>
+                <div class="destaque" id="melhorScore">0</div>
+            </div>
+            <button class="painel" id="btnIniciar" onclick="Pokebola(0)">START</button><br>
+            <!--ao clicar o botão a pokebola aparece na tela-->
+            <p style="font-size: 15px;">&copy;Milena Furuta Shishito</p>
+        </div>
+        <canvas id="meuCanvas" width="510" height="480"></canvas>
+    </div>
+</body>
+
+</html>
