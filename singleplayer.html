@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PokeHunt</title>
+    <script src="singleplayer.js"></script>
+    <link rel="shortcut icon" href="img/pikachu.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/8468fdb026.js" crossorigin="anonymous"></script>
+    <script src="gj-js-api.js"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=VT323&display=swap" rel="stylesheet">
+</head>
+
+<body class="noselect" onkeydown="Andar(event)" onload="IniciarJogo()">
+    <div id="sound-icon" onclick="Sound()">
+        <i id="soundIcon" class="fas fa-volume-down"></i>
+    </div>
+    <!-- quando a página for carregada o canvas *IniciarJogo() aparecerá e o jogador já poderá controlar o personagem pelos controles *Andar()-->
+    <div id="jogo">
+        
+        <img width="20%" src="img/PokeHunt.png"> <!-- Logo do jogo :)-->
+        <br>
+        <div id="instrucao">
+            <!--div do lado esquerdo do canvas-->
+            <div id="imgAnim">
+                <img id="imgTalk" alt="">
+                <p id="fala"> 
+                </p>
+            </div>
+            <div class="painel">
+                <strong>How to play</strong><br><br>
+                <!--2º parte: contém intrunções prévias do jogo-->
+                1. Click the red button to <i>START</i>;<br><br>
+                2. Move pikachu <img height="20px" src="img/pichu.png"> with the arrows in your keyboard<br><br>
+                3. Collect how many Pokeballs you can<img height="15px" src="img/pokebola.png"> until the time is up<br><br>
+                4. Run away from Team Rocket<br><img height="20px" src="img/jessie.png"><img height="20px"
+                    src="img/james.png"><br>
+            </div>
+        </div>
+        <div id="tempo">
+            <!--div do lado direito do canvas-->
+            <div id="placar" class="painel">
+                <!--1º parte: contém o número de pokebolas que o jogador coletar-->
+                <img style="margin: 10px;float: left;" id="pokebola"
+                    src="img/pokebolaM.png">
+                <!--img-->
+                <em id="numpokebola" class="destaque" style="float: left;">x0</em>
+                <!--numero que será atualizado pelo javascript-->
+                <img class="star" id="star1" src="img/star.png" alt="">
+                <img class="star" id="star2" src="img/star.png" alt="">
+                <img class="star" id="star3" src="img/star.png" alt="">
+            </div>
+            <div class="painel">
+                <!--1º parte: relógio-->
+                <strong>Time</strong><br>
+                <div id="relogio" class="destaque">04:40</div>
+                <!--o tempo será tualizado com o javascript-->
+            </div>
+            <div class="painel" id="recorde">
+                <!--2º parte: aparece a melhor pontuação das partidas, se a página for atualizada o recorde é perdido-->
+                <strong>Best Score</strong>
+                <div class="destaque" id="melhorScore">0</div>
+            </div>
+            <button class="btn" id="btnIniciar" onclick="Pokebola(0)">START</button><br>
+            <button style="margin-top: 10px;background-color:  lightslategray;border: lightslategray;" class="painel btn" id="btnMode" onclick="Mode(this)">FOREST MODE</button><br>
+            <!--ao clicar o botão a pokebola aparece na tela-->
+            <p style="font-size: 15px;">&copy;2020 pokehunt by mil</p>
+        </div>
+        <canvas id="meuCanvas" width="510" height="480"></canvas>
+    </div>
+</body>
+
+</html>
