@@ -1,0 +1,47 @@
+<!-- Milena Furuta Shishito 
+       20148    -   PD20    -->
+
+<!DOCTYPE html>
+<html lang="pt-br">                        
+<head>
+    <meta charset="UTF-8">
+    <title>PokeHunt</title>
+    <script src="canvas.js"></script>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body onkeydown="Andar(event)" onload="IniciarJogo()">          <!-- quando a página for carregada o canvas *IniciarJogo() aparecerá e o jogador já poderá controlar o personagem pelos controles *Andar()-->
+    <div id="jogo">
+        <img width="20%" src="img/PokeHunt.png">                <!-- Logo do jogo :)-->
+        <br>
+        <div id="instrucao">                                    <!--div do lado esquerdo do canvas-->  
+            <div id="placar" class="painel">                    <!--1º parte: contém o número de pokebolas que o jogador coletar--> 
+                <img height="60" style="margin: 10px;margin-left: 20%;float: left;" id="pokebola" src="img/pokebolaM.png"> <!--img-->
+                <em id="numpokebola" class="destaque" style="font-size: 60px;float: left;">x0</em> <!--numero que será atualizado pelo javascript-->
+            </div>
+            <div class="painel">
+                <strong>Instruções:</strong><br>                <!--2º parte: contém intrunções prévias do jogo-->
+                1. Aperte o botão <i>Iniciar</i>;<br>
+                2. Mova o Pichu<img height="20px" src="img/pichu.png">com as setas do seu teclado;<br>
+                3. Colete o máximo de Pokebolas <img height="15px" src="img/pokebola.png"> que conseguir até o tempo esgotar;<br>
+                4. Fuja da Equipe Rocket<br><img height="20px" src="img/jessie.png"><img height="20px" src="img/james.png"><br><br>
+                <img width="100%" src="img/pokemons2.png">
+            </div>
+        </div>
+        <div id="tempo" >                                     <!--div do lado direito do canvas-->
+            <div class="painel">                              <!--1º parte: relógio-->
+                <strong>Tempo</strong><br>
+                <div id="relogio" class="destaque">04:40</div><br>   <!--o tempo será tualizado com o javascript-->
+                <img width="100%" src="img/pokemons.png">
+            </div>
+            <div class="painel" id="recorde">                <!--2º parte: aparece a melhor pontuação das partidas, se a página for atualizada o recorde é perdido-->
+                <strong>Melhor Score:</strong>
+                <div class="destaque" id="melhorScore">0</div>    
+            </div>
+            <button class="painel" id="btnIniciar" onclick="Pokebola(0)">Iniciar</button><br> <!--ao clicar o botão a pokebola aparece na tela-->
+            <p style="font-size: 15px;">&copy;Milena Furuta Shishito</p>
+        </div>
+        <canvas id="meuCanvas" width="510" height="480"></canvas>
+    </div>
+</body>
+</html>
+

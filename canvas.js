@@ -1,3 +1,4 @@
+
 var audioA = new Audio("msc/sea.mp3")           //musica do jogo
 var audioClick = new Audio('msc/click.mp3')         //som do click do botão
 var audioEvol = new Audio('msc/evoluir.mp3')        //som da evolução do persongem
@@ -13,7 +14,7 @@ imgFundo.src = "img/fundo.png";
 var xHeroi = 70;        //pichu
 var yHeroi = 370;
 var imgHeroi = new Image();
-//imgHeroi.src = "img/pichu.png";
+imgHeroi.src = "img/pichu.png";
 
 var xMonstro1 = 40;    //monstro 1
 var yMonstro1 = 340;
@@ -35,19 +36,10 @@ var yMonstro4 = 400;
 var imgMonstro4 = new Image();
 imgMonstro4.src = "img/james.png";
 
-/********** Falas personagens  ******************* */
-var stars, persTalk, falaTalk;
-var talk;
-var myTime;
-
-/************************************************** */
 function IniciarJogo(){                                 //carregao canvas
-    
     objCanvas = document.getElementById("meuCanvas");
     objContexto = objCanvas.getContext("2d");
     objContexto.drawImage(imgFundo,0,0);
-
-    
 }
 
 function AtualizarTela(){                   //atualiza a posição dos personagens
@@ -59,33 +51,17 @@ function AtualizarTela(){                   //atualiza a posição dos personage
     objContexto.drawImage(imgMonstro3,xMonstro3,yMonstro3);
     objContexto.drawImage(imgMonstro4,xMonstro4,yMonstro4);
     if(Encontrou(xHeroi,yHeroi)){  //caso o personagem for pego
-        document.body.style.backgroundPositionY = "top"
-        document.body.style.backgroundPositionX = "left"
-        document.body.style.backgroundColor = "rgba(0, 0, 0, 0)";
-        clearTimeout(myTime);
-        myTime = setTimeout(function(){  
-            talk.style.opacity = "1";
-            persTalk.src = "img/teamrocketTalk.png";
-            falaTalk.innerHTML = "Team Rocket <br>smashed you!!!"
-            Recorde(numpokebola)         //confere se a pontuação foi recorde
-            audioFim.play()                                    
-            imgHeroi.src = "img/pikachuM.png"                  
-            numpokebola = 0;                       //zera a pontuação
-            audioA.pause();                        //pause a musica do jogo
-            xPok = -50                             //tira a pokebola da tela
-            atualizarRel=false                     //impedi de continuar a contagem do relogio
-            relogio.innerHTML = "Game Over" 
-        });
-        myTime = setTimeout(function(){
-            talk.style.opacity = "0";
-        },2000);
-        
+        audioFim.play()                                    
+        imgHeroi.src = "img/pikachuM.png"                  
+        Recorde(numpokebola)                   //confere se a pontuação foi recorde
+        numpokebola = 0;                       //zera a pontuação
+        audioA.pause();                        //pause a musica do jogo
+        xPok = -50                             //tira a pokebola da tela
+        atualizarRel=false                     //impedi de continuar a contagem do relogio
+        relogio.innerHTML = "Game Over" 
     } 
     else if(min == 0 & seg == 1){               //tempo acabou
-        document.body.style.backgroundColor = "rgba(0, 0, 0, 0)";
-        document.body.style.backgroundPositionY = "top"
-        document.body.style.backgroundPositionX = "left"
-        relogio.innerHTML = "You survived!"
+        relogio.innerHTML = "Você Sobreviveu!"
         Recorde(numpokebola)                 
         numpokebola = 0;                 
         audioA.pause();               
@@ -93,21 +69,7 @@ function AtualizarTela(){                   //atualiza a posição dos personage
         atualizarRel=false
         seg = 2;
         imgHeroi.src = "img/ditto.png" 
-
-        clearTimeout(myTime);
-        myTime = setTimeout(function(){  
-            talk.style.opacity = "1";
-            persTalk.src = "img/brockTalk.png";
-            falaTalk.innerHTML = "Congratulations!!!! <br> You survived Dito!!!"
-        });
-        setTimeout(function(){
-            talk.style.opacity = "0";
-        },3000)
-        // 3:10 começa
-        // 1:26 acaba
-    }else if(min == 1 && seg == 39)
-        document.body.style.backgroundColor = "rgba(0, 0, 0, 0.486)";
-
+    }
     if(xHeroi==xPok&&yHeroi==yPok){     //coletar pokebola
         numpokebola++;
         document.getElementById('numpokebola').innerHTML = "x"+numpokebola
@@ -225,26 +187,6 @@ function Pokebola(aux){                                        //   INICIO DA PA
         audioA.load();
         audioA.play();
         audioClick.play()
-
-        persTalk = document.getElementById("imgTalk");
-        falaTalk = document.getElementById("fala");
-        talk = document.getElementById("imgAnim");
-        talk.style.opacity = "0";
-        stars = [document.getElementById("star1"),document.getElementById("star2"),document.getElementById("star3")];
-        stars[0].style.opacity = "1";
-        stars[1].style.opacity = "0";
-        stars[2].style.opacity = "0";
-        document.body.style.backgroundPositionY = "bottom"
-        document.body.style.backgroundPositionX = "right"
-        clearTimeout(myTime);
-        myTime = setTimeout(function(){
-            talk.style.opacity = "1";
-            persTalk.src = "img/ash.gif";
-            falaTalk.innerHTML = "You can do it!!"
-        }, 1000);
-        myTime = setTimeout(function(){  
-            talk.style.opacity = "0";
-        }, 5000);
     }    
     xPok = Math.floor(Math.random()*(440 - 30)) +30     //gera uma posição aleatória para a pokebola
     yPok = Math.floor(Math.random()*(410 - 10)) + 10
@@ -274,16 +216,6 @@ function Recorde(numpokebola){
     if(numpokebola > melhorpont){
         melhorpont = numpokebola
         document.getElementById("melhorScore").innerHTML = melhorpont
-        
-        clearTimeout(myTime);
-        myTime = setTimeout(function(){  
-            talk.style.opacity = "1";
-            persTalk.src = "img/mistyTalk.png";
-            falaTalk.innerHTML = "Amazing!!!<br> You got "+melhorpont+" <br> pokeballs!!!!! <br> The best score until now!!"
-        }, 3000)
-        myTime = setTimeout(function(){
-            talk.style.opacity = "0";
-        },6000)
     }
 }
 
@@ -291,30 +223,10 @@ function Evolucao(numpokebola){              // 30 pokebolas = 1º evolução (p
     if(numpokebola == 30){                   // 50 pokebolas = 2º evolução (raichu)
         audioEvol.play()
         imgHeroi.src = "img/pikachu.png"
-        stars[1].style.opacity = "1";
-        document.body.style.backgroundPositionY = "center"
-        document.body.style.backgroundPositionX = "left"
-        myTime = setTimeout(function(){  
-            talk.style.opacity = "1";
-            persTalk.src = "img/pikachuTalk.png";
-            falaTalk.innerHTML = "Pika pika chuuu!"
-        });
-        myTime = setTimeout(function(){
-            talk.style.opacity = "0";
-        },6000)
+        
     }else if(numpokebola == 50){
         audioEvol.play()
         imgHeroi.src = "img/pikachu2.png"
-        stars[2].style.opacity = "1";
-        document.body.style.backgroundPositionY = "center"
-        document.body.style.backgroundPositionX = "right"
-        myTime = setTimeout(function(){  
-            talk.style.opacity = "1";
-            persTalk.src = "img/raichuTalk.png";
-            falaTalk.innerHTML = "Finally, Raichu!!!"
-        });
-        myTime = setTimeout(function(){
-            talk.style.opacity = "0";
-        },6000)
+        
     }
 }
