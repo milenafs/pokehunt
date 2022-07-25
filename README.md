@@ -1,3 +1,5 @@
-# pokehunt
+# Version 1.1.1 (released) 💫
 
-### Folow pokehunt: [click here](https://gamejolt.com/games/pokehunt/528071)
+- cool menu page with one of K.K's song
+
+- FOREST MODE!!!!!
